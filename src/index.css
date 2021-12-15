@@ -1,34 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap");
 
-:root {
-  /* Primary Colors */
-  --clr-bright-B: hsl(220, 98%, 61%);
-  --clr-gradient: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
-
-  /* Light Theme Colors */
-  --clr-l-very-light-G: hsl(0, 0%, 98%);
-  --clr-l-very-light-GB: hsl(236, 33%, 92%);
-  --clr-l-light-GB: hsl(233, 11%, 84%);
-  --clr-l-dark-GB: hsl(236, 9%, 61%);
-  --clr-l-very-dark-GB: hsl(235, 19%, 35%);
-
-  /* Dark Theme Colors */
-  --clr-d-very-dark-B: hsl(235, 21%, 11%);
-  --clr-d-very-dark-DB: hsl(235, 24%, 19%);
-  --clr-d-light-GB: hsl(234, 39%, 85%);
-  --clr-d-light-GB-hover: hsl(236, 33%, 92%);
-  --clr-d-dark-GB: hsl(234, 11%, 52%);
-  --clr-d-very-dark-GB: hsl(233, 14%, 35%);
-  --clr-d-very-dark-GB-2: hsl(237, 14%, 26%);
-
-  /* Fonts */
-  --ff-main: "Josefin Sans", sans-serif;
-
-  /* Bg images */
-  --bg-img-light: url(./images/bg-desktop-light.jpg);
-  --bg-img-dark: url(./images/bg-desktop-dark.jpg);
-}
-
 * {
   padding: 0;
   margin: 0;
@@ -36,6 +7,6 @@
 }
 
 body {
-  font-family: var(--ff-main);
+  font-family: "Josefin Sans", sans-serif;
   font-weight: 400;
 }
