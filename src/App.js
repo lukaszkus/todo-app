@@ -5,6 +5,8 @@ import { GlobalStyles } from "./components/globalStyles";
 import { lightTheme, darkTheme } from "./components/themes";
 
 import Header from "./components/Header";
+import ToDo from "./components/ToDo";
+import Footer from "./components/Footer";
 
 const Container = styled.div`
   margin: 0 auto;
@@ -24,6 +26,8 @@ function App() {
       <GlobalStyles />
       <Container>
         <Header themeToggle={themeToggle} theme={theme} />
+        <ToDo />
+        <Footer />
       </Container>
     </ThemeProvider>
   );
