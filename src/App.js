@@ -25,7 +25,7 @@ function App() {
     <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
       <GlobalStyles />
       <Container>
-        <Header themeToggle={themeToggle} theme={theme} />
+        <Header themeToggle={themeToggle} />
         <ToDo />
         <Footer />
       </Container>

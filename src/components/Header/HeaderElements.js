@@ -1,6 +1,4 @@
 import styled from "styled-components";
-import iconSun from "../../images/icon-sun.svg";
-import iconMoon from "../../images/icon-moon.svg";
 import { clrPrimary } from "../variables";
 
 export const HeaderContainer = styled.header`
@@ -17,8 +15,7 @@ export const HeaderTitle = styled.h1`
 `;
 
 export const HeaderBtn = styled.div`
-  background: ${(props) =>
-    props.theme === "light" ? `url(${iconMoon})` : `url(${iconSun})`};
+  background: ${({ theme }) => theme.toggleIcon};
   background-repeat: no-repeat;
   background-size: contain;
   aspect-ratio: 1;
