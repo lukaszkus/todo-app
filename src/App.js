@@ -4,13 +4,12 @@ import styled from "styled-components";
 import { GlobalStyles } from "./components/globalStyles";
 import { lightTheme, darkTheme } from "./components/themes";
 
+import Header from "./components/Header";
+
 const Container = styled.div`
   margin: 0 auto;
-  max-width: 1000px;
-`;
-
-const Title = styled.h1`
-  font-size: 60px;
+  max-width: 540px;
+  padding-inline: 1.5rem;
 `;
 
 function App() {
@@ -23,12 +22,9 @@ function App() {
   return (
     <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
       <GlobalStyles />
-      <div className="App">
-        <Container>
-          <Title>Hello World!</Title>
-          <button onClick={themeToggle}>Switch Theme</button>
-        </Container>
-      </div>
+      <Container>
+        <Header themeToggle={themeToggle} theme={theme} />
+      </Container>
     </ThemeProvider>
   );
 }
