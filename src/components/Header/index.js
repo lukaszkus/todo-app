@@ -1,12 +1,12 @@
 import React from "react";
 
-import { HeaderContainer, HeaderTitle, HeaderBtn } from "./HeaderElements";
+import { Container, Title, ToggleBtn } from "./HeaderElements";
 
 export default function Header({ themeToggle }) {
   return (
-    <HeaderContainer>
-      <HeaderTitle>TODO</HeaderTitle>
-      <HeaderBtn onClick={themeToggle} />
-    </HeaderContainer>
+    <Container>
+      <Title>TODO</Title>
+      <ToggleBtn onClick={themeToggle} />
+    </Container>
   );
 }

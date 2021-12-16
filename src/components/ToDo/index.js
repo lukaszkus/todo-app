@@ -1,24 +1,26 @@
 import React from "react";
 
 import {
-  ToDoContainer,
-  ToDoForm,
-  ToDoList,
-  ToDoItem,
-  FormInput,
-  FormBtn,
+  Container,
+  Form,
+  List,
+  Item,
+  CheckInput,
+  TodoInput,
+  AddBtn,
 } from "./ToDoElements";
 
 export default function ToDo() {
   return (
-    <ToDoContainer>
-      <ToDoForm>
-        <FormInput />
-        <FormBtn>Add</FormBtn>
-      </ToDoForm>
-      <ToDoList>
-        <ToDoItem />
-      </ToDoList>
-    </ToDoContainer>
+    <Container>
+      <Form>
+        <CheckInput type="checkbox" />
+        <TodoInput type="text" placeholder="Create a new todo..." />
+        <AddBtn role="button" />
+      </Form>
+      <List>
+        <Item />
+      </List>
+    </Container>
   );
 }
