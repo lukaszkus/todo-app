@@ -1,11 +1,21 @@
 import React from "react";
 
-import { ToDoContainer, ToDoForm, ToDoList, ToDoItem } from "./ToDoElements";
+import {
+  ToDoContainer,
+  ToDoForm,
+  ToDoList,
+  ToDoItem,
+  FormInput,
+  FormBtn,
+} from "./ToDoElements";
 
 export default function ToDo() {
   return (
     <ToDoContainer>
-      <ToDoForm />
+      <ToDoForm>
+        <FormInput />
+        <FormBtn>Add</FormBtn>
+      </ToDoForm>
       <ToDoList>
         <ToDoItem />
       </ToDoList>

@@ -1,8 +1,11 @@
+//Variables
+import { clrLight, clrDark } from "./variables";
+
+//Background images
 import imgMobLight from "../images/bg-mobile-light.jpg";
 import imgMobDark from "../images/bg-mobile-dark.jpg";
 import imgDeskLight from "../images/bg-desktop-light.jpg";
 import imgDeskDark from "../images/bg-desktop-dark.jpg";
-import { clrLight, clrDark } from "./variables";
 
 export const lightTheme = {
   body: clrLight.veryLight,

@@ -1,6 +1,6 @@
 //Primary Colors
 export const clrPrimary = {
-  brightB: "hsl(220, 98%, 61%)",
+  bright: "hsl(220, 98%, 61%)",
   gradient: "linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%))",
   white: "hsl(0, 0%, 100%)",
 };
