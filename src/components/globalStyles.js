@@ -2,7 +2,7 @@ import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyles = createGlobalStyle`
   body {
-    background: ${({ theme }) => theme.body};
+    background: ${({ theme }) => theme.bodyBg};
     color: ${({ theme }) => theme.text};
     // transition: all 0.5s linear;
     width: 100%;

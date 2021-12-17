@@ -1,29 +1,28 @@
 import styled from "styled-components";
-import { clrPrimary } from "../variables";
 
 import crossIcon from "../../images/icon-cross.svg";
 
 export const Container = styled.main``;
+
+export const CheckBox = styled.input`
+  margin-right: 15px;
+  border-radius: 50%;
+`;
 
 export const Form = styled.form`
   display: flex;
   align-items: center;
   width: 100%;
   padding: 15px 20px;
-  background: ${({ theme }) => theme.body};
+  background: ${({ theme }) => theme.todoBg};
   border-radius: 5px;
-  padding-bottom: 1rem;
+  margin-bottom: 1rem;
 
   @media screen and (min-width: 768px) {
   }
 `;
 
-export const CheckInput = styled.input`
-  margin-right: 15px;
-  border-radius: 50%;
-`;
-
-export const TodoInput = styled.input`
+export const Input = styled.input`
   width: 100%;
   height: 20px;
   margin-right: 15px;
@@ -34,13 +33,13 @@ export const TodoInput = styled.input`
   outline: none;
 `;
 
-export const AddBtn = styled.div`
+export const Btn = styled.div`
   background: url(${crossIcon});
   background-repeat: no-repeat;
   background-size: contain;
   height: 15px;
   width: 15px;
-  transform: rotate(45deg);
+  transform: ${(props) => (props.Function === "Add" ? "rotate(45deg)" : "0")};
 
   &:hover {
     cursor: pointer;
@@ -49,8 +48,17 @@ export const AddBtn = styled.div`
 
 export const List = styled.ul`
   list-style: none;
+  background: ${({ theme }) => theme.todoBg};
+  border-radius: 5px;
 `;
 
 export const Item = styled.li`
-  background-color: ${clrPrimary.bright};
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 15px 20px;
+  border-bottom: 1px solid ${({ theme }) => theme.line};
+  &:last-child {
+    border: none;
+  }
 `;

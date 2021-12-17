@@ -5,21 +5,35 @@ import {
   Form,
   List,
   Item,
-  CheckInput,
-  TodoInput,
-  AddBtn,
+  CheckBox,
+  Input,
+  Btn,
 } from "./ToDoElements";
 
 export default function ToDo() {
   return (
     <Container>
       <Form>
-        <CheckInput type="checkbox" />
-        <TodoInput type="text" placeholder="Create a new todo..." />
-        <AddBtn role="button" />
+        <CheckBox type="checkbox" />
+        <Input type="text" placeholder="Create a new todo..." />
+        <Btn role="button" Function="Add" />
       </Form>
       <List>
-        <Item />
+        <Item>
+          <CheckBox type="checkbox" />
+          <Input type="text" placeholder="Create a new todo..." />
+          <Btn role="button" Function="Remove" />
+        </Item>
+        <Item>
+          <CheckBox type="checkbox" />
+          <Input type="text" placeholder="Create a new todo..." />
+          <Btn role="button" />
+        </Item>
+        <Item>
+          <CheckBox type="checkbox" />
+          <Input type="text" placeholder="Create a new todo..." />
+          <Btn role="button" />
+        </Item>
       </List>
     </Container>
   );

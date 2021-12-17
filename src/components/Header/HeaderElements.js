@@ -1,11 +1,11 @@
 import styled from "styled-components";
-import { clrPrimary } from "../variables";
+import { clr } from "../variables";
 
 export const Container = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  padding: 3.125rem 0 2.5rem 0;
+  padding: 3.125rem 0 2rem 0;
 
   @media screen and (min-width: 768px) {
     padding: 78px 0 3.125rem 0;
@@ -15,7 +15,7 @@ export const Container = styled.header`
 export const Title = styled.h1`
   font-size: 1.6rem;
   letter-spacing: 11px;
-  color: ${clrPrimary.white};
+  color: ${clr.white};
 
   @media screen and (min-width: 768px) {
     font-size: 1.9rem;
