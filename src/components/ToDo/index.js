@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 
 import {
   Container,
@@ -8,32 +9,64 @@ import {
   CheckBox,
   Input,
   Btn,
+  Div,
 } from "./ToDoElements";
 
 export default function ToDo() {
+  const [todos, setTodos] = useState([{ text: "Task1" }]);
+  const [value, setValue] = useState("");
+
+  const addTodo = (text) => {
+    const newTodos = [...todos, { text }];
+    setTodos(newTodos);
+  };
+
+  const removeTodo = (index) => {
+    const newTodos = [...todos];
+    newTodos.splice(index, 1);
+    setTodos(newTodos);
+  };
+
+  const completeTodo = (index) => {
+    const newTodos = [...todos];
+    newTodos[index].isCompleted = true;
+    setTodos(newTodos);
+  };
+
+  const handleAdd = (e) => {
+    e.preventDefault();
+    if (!value) return;
+    addTodo(value);
+    setValue("");
+  };
+
   return (
     <Container>
       <Form>
-        <CheckBox type="checkbox" />
-        <Input type="text" placeholder="Create a new todo..." />
-        <Btn role="button" Function="Add" />
+        <Input
+          type="text"
+          placeholder="Create a new todo..."
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
+        />
+        <Btn role="button" Function="Add" onClick={handleAdd} />
       </Form>
       <List>
-        <Item>
-          <CheckBox type="checkbox" />
-          <Input type="text" placeholder="Create a new todo..." />
-          <Btn role="button" Function="Remove" />
-        </Item>
-        <Item>
-          <CheckBox type="checkbox" />
-          <Input type="text" placeholder="Create a new todo..." />
-          <Btn role="button" />
-        </Item>
-        <Item>
-          <CheckBox type="checkbox" />
-          <Input type="text" placeholder="Create a new todo..." />
-          <Btn role="button" />
-        </Item>
+        {todos.map((todo, index) => (
+          <Item key={index} index={index}>
+            <CheckBox type="checkbox" onClick={() => completeTodo(index)} />
+            <Div
+              style={{ textDecoration: todo.isCompleted ? "line-through" : "" }}
+            >
+              {todo.text}
+            </Div>
+            <Btn
+              role="button"
+              Function="Remove"
+              onClick={() => removeTodo(index)}
+            />
+          </Item>
+        ))}
       </List>
     </Container>
   );
