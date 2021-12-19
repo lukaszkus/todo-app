@@ -23,9 +23,7 @@ export const CheckBox = styled.input`
     content: url(${checkIcon});
     background-image: ${clr.gradient};
     transform: scale(0);
-    width: 20px;
-    aspect-ratio: 1;
-    border-radius: 50%;
+    // border-radius: 50%;
   }
   &:checked::before {
     transform: scale(1);

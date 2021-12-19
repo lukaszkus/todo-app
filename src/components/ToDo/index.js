@@ -13,7 +13,11 @@ import {
 } from "./ToDoElements";
 
 export default function ToDo() {
-  const [todos, setTodos] = useState([{ text: "Task1" }]);
+  const [todos, setTodos] = useState([
+    { text: "Task 1" },
+    { text: "Task 2" },
+    { text: "Task 3" },
+  ]);
   const [value, setValue] = useState("");
 
   const addTodo = (text) => {
