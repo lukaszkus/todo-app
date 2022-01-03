@@ -1,13 +1,14 @@
 import React from "react";
 import { useState } from "react";
+import AddTodo from "./AddTodo";
 
 import {
   Container,
-  Form,
+  // Form,
   List,
   Item,
   CheckBox,
-  Input,
+  // Input,
   Btn,
   Div,
 } from "./ToDoElements";
@@ -18,12 +19,12 @@ export default function ToDo() {
     { text: "Task 2" },
     { text: "Task 3" },
   ]);
-  const [value, setValue] = useState("");
+  // const [value, setValue] = useState("");
 
-  const addTodo = (text) => {
-    const newTodos = [...todos, { text }];
-    setTodos(newTodos);
-  };
+  // const addTodo = (text) => {
+  //   const newTodos = [...todos, { text }];
+  //   setTodos(newTodos);
+  // };
 
   const removeTodo = (index) => {
     const newTodos = [...todos];
@@ -37,16 +38,17 @@ export default function ToDo() {
     setTodos(newTodos);
   };
 
-  const handleAdd = (e) => {
-    e.preventDefault();
-    if (!value) return;
-    addTodo(value);
-    setValue("");
-  };
+  // const handleAdd = (e) => {
+  //   e.preventDefault();
+  //   if (!value) return;
+  //   addTodo(value);
+  //   setValue("");
+  // };
 
   return (
     <Container>
-      <Form>
+      <AddTodo />
+      {/* <Form>
         <Input
           type="text"
           placeholder="Create a new todo..."
@@ -54,7 +56,7 @@ export default function ToDo() {
           onChange={(e) => setValue(e.target.value)}
         />
         <Btn role="button" Function="Add" onClick={handleAdd} />
-      </Form>
+      </Form> */}
       <List>
         {todos.map((todo, index) => (
           <Item key={index} index={index}>
