@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { db } from "../../firebaseConfig";
+import { db } from "../utils/firebaseConfig";
 import { collection, addDoc, Timestamp } from "firebase/firestore";
 import styled from "styled-components";
-import crossIcon from "../../images/icon-cross.svg";
+// import crossIcon from "../../images/icon-cross.svg";
+import Button from "./Button";
 
 const AddTodoForm = styled.form`
   display: flex;
@@ -29,19 +30,19 @@ const AddTodoInput = styled.input`
   outline: none;
 `;
 
-const Btn = styled.button`
-  background: url(${crossIcon});
-  background-repeat: no-repeat;
-  background-size: contain;
-  height: 15px;
-  width: 15px;
-  border: 0;
-  transform: ${(props) => (props.Function === "Add" ? "rotate(45deg)" : "0")};
+// const Btn = styled.button`
+//   background: url(${crossIcon});
+//   background-repeat: no-repeat;
+//   background-size: contain;
+//   height: 15px;
+//   width: 15px;
+//   border: 0;
+//   transform: ${(props) => (props.Function === "Add" ? "rotate(45deg)" : "0")};
 
-  &:hover {
-    cursor: pointer;
-  }
-`;
+//   &:hover {
+//     cursor: pointer;
+//   }
+// `;
 
 function AddTodo() {
   const [value, setValue] = useState("");
@@ -70,7 +71,8 @@ function AddTodo() {
         value={value}
         onChange={(e) => setValue(e.target.value)}
       />
-      <Btn role="button" Function="Add" type="submit" />
+      {/* <Btn role="button" Function="Add" type="submit" /> */}
+      <Button Function="Add" />
     </AddTodoForm>
   );
 }

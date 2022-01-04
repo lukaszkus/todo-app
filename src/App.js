@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { ThemeProvider } from "styled-components";
 import styled from "styled-components";
-import { GlobalStyles } from "./components/globalStyles";
-import { lightTheme, darkTheme } from "./components/themes";
+import { GlobalStyles } from "./utils/globalStyles";
+import { lightTheme, darkTheme } from "./utils/themes";
 
-import Header from "./components/Header";
-import ToDo from "./components/ToDo";
-import Footer from "./components/Footer";
+import Header from "./components/Header.js";
+import TodoList from "./components/TodoList";
+import Footer from "./components/Footer.js";
 
 const Container = styled.div`
   margin: 0 auto;
@@ -26,7 +26,7 @@ function App() {
       <GlobalStyles />
       <Container>
         <Header themeToggle={themeToggle} />
-        <ToDo />
+        <TodoList />
         <Footer />
       </Container>
     </ThemeProvider>

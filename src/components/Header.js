@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { clr } from "../variables";
+import { clr } from "../utils/variables";
 
 export const Container = styled.header`
   display: flex;
@@ -35,3 +35,14 @@ export const ToggleBtn = styled.div`
     height: 1.5rem;
   }
 `;
+
+function Header({ themeToggle }) {
+  return (
+    <Container>
+      <Title>TODO</Title>
+      <ToggleBtn onClick={themeToggle} />
+    </Container>
+  );
+}
+
+export default Header;
