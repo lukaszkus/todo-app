@@ -10,7 +10,7 @@ import Footer from "./components/Footer.js";
 
 const Container = styled.div`
   margin: 0 auto;
-  max-width: 540px;
+  max-width: 588px;
   padding-inline: 1.5rem;
 `;
 
