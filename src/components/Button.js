@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import crossIcon from "../images/icon-cross.svg";
+import ReactTooltip from "react-tooltip";
 
 const Btn = styled.button`
   background: url(${crossIcon});
@@ -17,7 +18,17 @@ const Btn = styled.button`
 `;
 
 function Button({ Function }) {
-  return <Btn role="button" Function={Function} type="submit" />;
+  return (
+    <>
+      <Btn
+        role="button"
+        Function={Function}
+        type="submit"
+        data-tip={Function}
+      />
+      <ReactTooltip />
+    </>
+  );
 }
 
 export default Button;
