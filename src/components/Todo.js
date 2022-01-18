@@ -53,7 +53,7 @@ const TodoTxt = styled.p`
 
 const TestDiv = styled.div``;
 
-function Todo({ value }) {
+function Todo({ value, id }) {
   const [display, setDisplay] = useState(false);
 
   const showBtn = (e) => {
@@ -68,7 +68,7 @@ function Todo({ value }) {
 
   const handleDelete = async () => {
     console.log("delete");
-    const todoDocRef = doc(db, "todos");
+    const todoDocRef = doc(db, "todos", id);
     try {
       await deleteDoc(todoDocRef);
     } catch (err) {
