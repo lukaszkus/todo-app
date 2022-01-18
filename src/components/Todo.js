@@ -64,7 +64,8 @@ function Todo({ value }) {
     <TodoItem onMouseEnter={(e) => showBtn(e)} onMouseLeave={(e) => hideBtn(e)}>
       <CheckBox type="checkbox" />
       <TodoTxt>{value}</TodoTxt>
-      {display && <Button Function="Remove" />}
+      {display && <Button btnType="Edit" />}
+      {display && <Button btnType="Remove" />}
     </TodoItem>
   );
 }

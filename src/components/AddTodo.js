@@ -72,7 +72,7 @@ function AddTodo() {
         onChange={(e) => setValue(e.target.value)}
       />
       {/* <Btn role="button" Function="Add" type="submit" /> */}
-      <Button Function="Add" />
+      <Button btnType="Add" />
     </AddTodoForm>
   );
 }
