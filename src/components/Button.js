@@ -1,8 +1,9 @@
 import React from "react";
 import styled from "styled-components";
+import ReactTooltip from "react-tooltip";
+
 import crossIcon from "../images/icon-cross.svg";
 import editIcon from "../images/edit.png";
-import ReactTooltip from "react-tooltip";
 
 const handleIconType = (btnType) => {
   switch (btnType) {
@@ -24,6 +25,7 @@ const Btn = styled.button`
   height: 15px;
   width: 15px;
   border: 0;
+  margin-left: 10px;
 
   &:hover {
     cursor: pointer;
@@ -33,7 +35,7 @@ const Btn = styled.button`
 function Button({ btnType }) {
   return (
     <>
-      <Btn role="button" type="submit" data-tip={btnType} btnType={btnType} />
+      <Btn data-tip={btnType} btnType={btnType} />
       <ReactTooltip />
     </>
   );

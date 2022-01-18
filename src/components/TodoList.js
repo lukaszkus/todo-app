@@ -16,6 +16,7 @@ export const List = styled.ul`
   list-style: none;
   background: ${({ theme }) => theme.todoBg};
   border-radius: 5px;
+  margin-bottom: 50px;
 `;
 
 function TodoList() {

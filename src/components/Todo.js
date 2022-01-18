@@ -1,5 +1,7 @@
 import React from "react";
 import { useState } from "react";
+import { doc, deleteDoc } from "firebase/firestore";
+import { db } from "../utils/firebaseConfig";
 
 import styled from "styled-components";
 import { clr } from "../utils/variables";
@@ -7,10 +9,11 @@ import { clr } from "../utils/variables";
 
 import Button from "./Button";
 
-export const TodoItem = styled.li`
+const TodoItem = styled.li`
   display: flex;
   align-items: center;
   width: 100%;
+  height: 50px;
   padding: 15px 20px;
   border-bottom: 1px solid ${({ theme }) => theme.line};
   &:last-child {
@@ -19,11 +22,12 @@ export const TodoItem = styled.li`
   position: relative;
 `;
 
-export const CheckBox = styled.input`
+const CheckBox = styled.input`
   appearance: none;
   margin-right: 15px;
   width: 20px;
-  aspect-ratio: 1;
+  height: 20px;
+  // aspect-ratio: 1;
   border: 1px solid ${({ theme }) => theme.line};
   border-radius: 50%;
   display: grid;
@@ -33,19 +37,21 @@ export const CheckBox = styled.input`
     cursor: pointer;
   }
   &::before {
-    // content: "";
+    content: "";
     background-image: ${clr.gradient};
     transform: scale(0);
-    // border-radius: 50%;
+    border-radius: 50%;
   }
   &:checked::before {
-    transform: scale(1);
+    // transform: scale(1);
   }
 `;
 
-export const TodoTxt = styled.p`
+const TodoTxt = styled.p`
   width: 100%;
 `;
+
+const TestDiv = styled.div``;
 
 function Todo({ value }) {
   const [display, setDisplay] = useState(false);
@@ -60,12 +66,24 @@ function Todo({ value }) {
     setDisplay(false);
   };
 
+  const handleDelete = async () => {
+    console.log("delete");
+    const todoDocRef = doc(db, "todos");
+    try {
+      await deleteDoc(todoDocRef);
+    } catch (err) {
+      alert(err);
+    }
+  };
+
   return (
     <TodoItem onMouseEnter={(e) => showBtn(e)} onMouseLeave={(e) => hideBtn(e)}>
       <CheckBox type="checkbox" />
       <TodoTxt>{value}</TodoTxt>
       {display && <Button btnType="Edit" />}
-      {display && <Button btnType="Remove" />}
+      <TestDiv onClick={handleDelete}>
+        {display && <Button btnType="Remove" />}
+      </TestDiv>
     </TodoItem>
   );
 }
