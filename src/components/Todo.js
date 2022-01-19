@@ -12,46 +12,62 @@ import Button from "./Button";
 const TodoItem = styled.li`
   display: flex;
   align-items: center;
-  width: 100%;
-  height: 50px;
+  gap: 15px;
   padding: 15px 20px;
   border-bottom: 1px solid ${({ theme }) => theme.line};
   &:last-child {
     border: none;
   }
-  position: relative;
 `;
 
 const CheckBox = styled.input`
   appearance: none;
-  margin-right: 15px;
-  width: 20px;
-  height: 20px;
-  // aspect-ratio: 1;
+  width: 18px;
+  aspect-ratio: 1;
   border: 1px solid ${({ theme }) => theme.line};
   border-radius: 50%;
   display: grid;
   place-content: center;
-  &:hover {
-    border: 1px solid ${clr.bright};
-    cursor: pointer;
-  }
-  &::before {
-    content: "";
-    background-image: ${clr.gradient};
-    transform: scale(0);
-    border-radius: 50%;
-  }
-  &:checked::before {
-    // transform: scale(1);
-  }
+  // &:hover {
+  //   border: 1px solid ${clr.bright};
+  //   cursor: pointer;
+  // }
+  // &::before {
+  //   content: "";
+  //   background-image: ${clr.gradient};
+  //   transform: scale(0);
+  //   border-radius: 50%;
+  // }
+  // &:checked::before {
+  //   transform: scale(1);
+  // }
+`;
+
+const Div = styled.div`
+  width: 20px;
+  height: 20px;
+  display: grid;
+  place-items: center;
 `;
 
 const TodoTxt = styled.p`
-  width: 100%;
+  flex-grow: 2;
+  max-width: 400px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
 `;
 
-const TestDiv = styled.div``;
+const BtnContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+`;
+
+const TestDiv = styled.div`
+  display: grid;
+  place-items: center;
+`;
 
 function Todo({ value, id }) {
   const [display, setDisplay] = useState(false);
@@ -78,12 +94,16 @@ function Todo({ value, id }) {
 
   return (
     <TodoItem onMouseEnter={(e) => showBtn(e)} onMouseLeave={(e) => hideBtn(e)}>
-      <CheckBox type="checkbox" />
+      <Div>
+        <CheckBox type="checkbox" />
+      </Div>
       <TodoTxt>{value}</TodoTxt>
-      {display && <Button btnType="Edit" />}
-      <TestDiv onClick={handleDelete}>
-        {display && <Button btnType="Remove" />}
-      </TestDiv>
+      <BtnContainer>
+        <TestDiv>{display && <Button btnType="Edit" />}</TestDiv>
+        <TestDiv onClick={handleDelete}>
+          {display && <Button btnType="Remove" />}
+        </TestDiv>
+      </BtnContainer>
     </TodoItem>
   );
 }

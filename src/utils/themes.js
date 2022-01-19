@@ -19,6 +19,7 @@ export const lightTheme = {
   toggleIcon: `url(${iconMoon})`,
   todoBg: clr.white,
   line: "#e6e5ea",
+  shadow: "rgba(0, 0, 0, 0.2)",
 };
 
 export const darkTheme = {
@@ -29,4 +30,5 @@ export const darkTheme = {
   toggleIcon: `url(${iconSun})`,
   todoBg: "#25273c",
   line: "#4d4f64",
+  shadow: "rgba(0, 0, 0, 0.6)",
 };
