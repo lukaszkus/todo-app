@@ -1,7 +1,8 @@
 import styled from "styled-components";
+import ReactTooltip from "react-tooltip";
 import { clr } from "../utils/variables";
 
-export const Container = styled.header`
+export const HeaderContainer = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -12,7 +13,7 @@ export const Container = styled.header`
   }
 `;
 
-export const Title = styled.h1`
+export const HeaderTitle = styled.h1`
   font-size: 1.6rem;
   letter-spacing: 11px;
   color: ${clr.white};
@@ -23,7 +24,7 @@ export const Title = styled.h1`
   }
 `;
 
-export const ToggleBtn = styled.div`
+export const HeaderBtn = styled.div`
   background: ${({ theme }) => theme.toggleIcon};
   background-repeat: no-repeat;
   background-size: contain;
@@ -38,10 +39,11 @@ export const ToggleBtn = styled.div`
 
 function Header({ themeToggle }) {
   return (
-    <Container>
-      <Title>TODO</Title>
-      <ToggleBtn onClick={themeToggle} />
-    </Container>
+    <HeaderContainer>
+      <HeaderTitle>TODO</HeaderTitle>
+      <HeaderBtn onClick={themeToggle} data-tip="Switch mode" />
+      <ReactTooltip />
+    </HeaderContainer>
   );
 }
 
