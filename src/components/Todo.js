@@ -69,7 +69,7 @@ const TestDiv = styled.div`
   place-items: center;
 `;
 
-function Todo({ value, id }) {
+function Todo({ value, id, openModal }) {
   const [display, setDisplay] = useState(false);
 
   const showBtn = (e) => {
@@ -99,7 +99,9 @@ function Todo({ value, id }) {
       </Div>
       <TodoTxt>{value}</TodoTxt>
       <BtnContainer>
-        <TestDiv>{display && <Button btnType="Edit" />}</TestDiv>
+        <TestDiv onClick={openModal}>
+          {display && <Button btnType="Edit" />}
+        </TestDiv>
         <TestDiv onClick={handleDelete}>
           {display && <Button btnType="Remove" />}
         </TestDiv>

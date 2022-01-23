@@ -9,6 +9,7 @@ import styled from "styled-components";
 
 import AddTodo from "./AddTodo";
 import Todo from "./Todo";
+import Modal from "./Modal";
 
 export const Container = styled.main``;
 
@@ -24,6 +25,11 @@ export const List = styled.ul`
 
 function TodoList() {
   const [todos, setTodos] = useState([]);
+  const [modal, setModal] = useState(false);
+
+  const openModal = () => {
+    setModal(!modal);
+  };
 
   useEffect(() => {
     const q = query(collection(db, "todos"), orderBy("created", "desc"));
@@ -47,9 +53,11 @@ function TodoList() {
             key={todo.id}
             completed={todo.data.completed}
             value={todo.data.value}
+            openModal={openModal}
           />
         ))}
       </List>
+      <Modal show={modal} />
     </Container>
   );
 }
