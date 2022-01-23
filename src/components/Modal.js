@@ -48,12 +48,12 @@ const ModalInput = styled.input`
   outline: none;
 `;
 
-function Modal({ show }) {
+function Modal({ show, openModal }) {
   return (
     <>
       {show ? (
         <ModalContainer>
-          <ModalContent>
+          <ModalContent onClick={(e) => openModal(e)}>
             <ModalForm name="editTodo">
               <ModalInput
                 type="text"
@@ -62,7 +62,7 @@ function Modal({ show }) {
                 // value={value}
                 // onChange={(e) => setValue(e.target.value)}
               />
-              <Button btnType="Add" />
+              <Button btnType="Close" onClick={(e) => openModal(e)} />
             </ModalForm>
           </ModalContent>
         </ModalContainer>

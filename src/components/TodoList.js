@@ -27,7 +27,9 @@ function TodoList() {
   const [todos, setTodos] = useState([]);
   const [modal, setModal] = useState(false);
 
-  const openModal = () => {
+  const openModal = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
     setModal(!modal);
   };
 
@@ -57,7 +59,7 @@ function TodoList() {
           />
         ))}
       </List>
-      <Modal show={modal} />
+      <Modal show={modal} openModal={openModal} />
     </Container>
   );
 }

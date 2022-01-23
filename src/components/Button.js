@@ -14,6 +14,8 @@ const handleIconType = (btnType) => {
       return `background: url(${crossIcon})`;
     case "Edit":
       return `background: url(${editIcon})`;
+    case "Close":
+      return `background: url(${crossIcon})`;
     default:
       return null;
   }
