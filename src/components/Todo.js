@@ -9,6 +9,7 @@ import styled from "styled-components";
 
 import Button from "./Button";
 import EditTodo from "./EditTodo";
+import CheckBox from "./CheckBox";
 
 const TodoItem = styled.li`
   display: flex;
@@ -21,30 +22,55 @@ const TodoItem = styled.li`
   }
 `;
 
-const CheckBox = styled.input`
-  // appearance: none;
-  // width: 18px;
-  // aspect-ratio: 1;
-  // border: 1px solid ${({ theme }) => theme.line};
-  // border-radius: 50%;
-  // display: grid;
-  // place-content: center;
-`;
+// const CheckBoxContainer = styled.div`
+//   display: inline-block;
+//   vertical-align: middle;
+// `;
 
-const CheckBoxLabel = styled.label`
-  display: inline-block;
-  position: relative;
-  vertical-align: middle;
-  margin: 5px;
-  cursor: pointer;
-`;
+// const HiddenCheckBox = styled.input.attrs({ type: "checkbox" })`
+//   border: 0;
+//   clip: rect(0 0 0 0);
+//   clippath: inset(50%);
+//   height: 1px;
+//   margin: -1px;
+//   overflow: hidden;
+//   padding: 0;
+//   position: absolute;
+//   white-space: nowrap;
+//   width: 1px;
+//   // appearance: none;
+//   // width: 18px;
+//   // aspect-ratio: 1;
+//   // border: 1px solid ${({ theme }) => theme.line};
+//   // border-radius: 50%;
+//   // display: grid;
+//   // place-content: center;
+// `;
 
-const Div = styled.div`
-  width: 20px;
-  height: 20px;
-  display: grid;
-  place-items: center;
-`;
+// const StyledCheckbox = styled.div`
+//   display: inline-block;
+//   width: 18px;
+//   height: 18px;
+//   border: 1px solid ${({ theme }) => theme.line};
+//   border-radius: 50%;
+//   transition: all 150ms;
+// `;
+
+// const CheckBoxLabel = styled.label`
+//   display: inline-block;
+//   position: relative;
+//   vertical-align: middle;
+//   margin: 5px;
+//   cursor: pointer;
+//   background-color: red;
+// `;
+
+// const Div = styled.div`
+//   width: 20px;
+//   height: 20px;
+//   display: grid;
+//   place-items: center;
+// `;
 
 const TodoTxt = styled.p`
   flex-grow: 2;
@@ -84,7 +110,12 @@ function Todo({ value, id, completed }) {
     setDisplayBtn(false);
   };
 
-  const handleChange = async () => {
+  const handleChange = () => {
+    setIsCompleted(!isCompleted);
+    handleUpdate();
+  };
+
+  const handleUpdate = async () => {
     console.log("change");
     const todoDocRef = doc(db, "todos", id);
     try {
@@ -110,9 +141,13 @@ function Todo({ value, id, completed }) {
     <>
       <TodoItem
         onMouseEnter={(e) => showBtn(e)}
-        onMouseLeave={(e) => hideBtn(e)}>
-        <Div>
-          <CheckBox
+        onMouseLeave={(e) => hideBtn(e)}
+      >
+        <label>
+          <CheckBox checked={isCompleted} onChange={handleChange} />
+        </label>
+        {/* <CheckBoxContainer>
+          <HiddenCheckBox
             type="checkbox"
             id={`checkbox-${id}`}
             checked={isCompleted}
@@ -120,10 +155,12 @@ function Todo({ value, id, completed }) {
           />
           <CheckBoxLabel
             htmlFor={`checkbox-${id}`}
-            onClick={() => setIsCompleted(!isCompleted)}>
-            Label
+            onClick={() => setIsCompleted(!isCompleted)}
+          >
+            l
           </CheckBoxLabel>
-        </Div>
+          <StyledCheckbox checked={isCompleted} />
+        </CheckBoxContainer> */}
         <TodoTxt>{value}</TodoTxt>
         <BtnContainer>
           <TestDiv onClick={showModal}>
