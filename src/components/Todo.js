@@ -31,6 +31,14 @@ const CheckBox = styled.input`
   // place-content: center;
 `;
 
+const CheckBoxLabel = styled.label`
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+  margin: 5px;
+  cursor: pointer;
+`;
+
 const Div = styled.div`
   width: 20px;
   height: 20px;
@@ -109,11 +117,12 @@ function Todo({ value, id, completed }) {
             id={`checkbox-${id}`}
             checked={isCompleted}
             onChange={handleChange}
-            // onClick={() => setIsCompleted(!isCompleted)}
           />
-          <label
+          <CheckBoxLabel
             htmlFor={`checkbox-${id}`}
-            onClick={() => setIsCompleted(!isCompleted)}></label>
+            onClick={() => setIsCompleted(!isCompleted)}>
+            Label
+          </CheckBoxLabel>
         </Div>
         <TodoTxt>{value}</TodoTxt>
         <BtnContainer>
