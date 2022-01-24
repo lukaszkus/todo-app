@@ -1,13 +1,14 @@
 import React from "react";
 import { useState } from "react";
-import { doc, deleteDoc } from "firebase/firestore";
+import { doc, updateDoc, deleteDoc } from "firebase/firestore";
 import { db } from "../utils/firebaseConfig";
 
 import styled from "styled-components";
-import { clr } from "../utils/variables";
+// import { clr } from "../utils/variables";
 // import checkIcon from "../../images/icon-check.svg";
 
 import Button from "./Button";
+import EditTodo from "./EditTodo";
 
 const TodoItem = styled.li`
   display: flex;
@@ -21,26 +22,13 @@ const TodoItem = styled.li`
 `;
 
 const CheckBox = styled.input`
-  appearance: none;
-  width: 18px;
-  aspect-ratio: 1;
-  border: 1px solid ${({ theme }) => theme.line};
-  border-radius: 50%;
-  display: grid;
-  place-content: center;
-  // &:hover {
-  //   border: 1px solid ${clr.bright};
-  //   cursor: pointer;
-  // }
-  // &::before {
-  //   content: "";
-  //   background-image: ${clr.gradient};
-  //   transform: scale(0);
-  //   border-radius: 50%;
-  // }
-  // &:checked::before {
-  //   transform: scale(1);
-  // }
+  // appearance: none;
+  // width: 18px;
+  // aspect-ratio: 1;
+  // border: 1px solid ${({ theme }) => theme.line};
+  // border-radius: 50%;
+  // display: grid;
+  // place-content: center;
 `;
 
 const Div = styled.div`
@@ -69,17 +57,35 @@ const TestDiv = styled.div`
   place-items: center;
 `;
 
-function Todo({ value, id, openModal }) {
-  const [display, setDisplay] = useState(false);
+function Todo({ value, id, completed }) {
+  const [displayBtn, setDisplayBtn] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isCompleted, setIsCompleted] = useState(completed);
+
+  const showModal = () => {
+    setIsModalOpen(!isModalOpen);
+  };
 
   const showBtn = (e) => {
     e.preventDefault();
-    setDisplay(true);
+    setDisplayBtn(true);
   };
 
   const hideBtn = (e) => {
     e.preventDefault();
-    setDisplay(false);
+    setDisplayBtn(false);
+  };
+
+  const handleChange = async () => {
+    console.log("change");
+    const todoDocRef = doc(db, "todos", id);
+    try {
+      await updateDoc(todoDocRef, {
+        completed: isCompleted,
+      });
+    } catch (err) {
+      alert(err);
+    }
   };
 
   const handleDelete = async () => {
@@ -93,20 +99,36 @@ function Todo({ value, id, openModal }) {
   };
 
   return (
-    <TodoItem onMouseEnter={(e) => showBtn(e)} onMouseLeave={(e) => hideBtn(e)}>
-      <Div>
-        <CheckBox type="checkbox" />
-      </Div>
-      <TodoTxt>{value}</TodoTxt>
-      <BtnContainer>
-        <TestDiv onClick={openModal}>
-          {display && <Button btnType="Edit" />}
-        </TestDiv>
-        <TestDiv onClick={handleDelete}>
-          {display && <Button btnType="Remove" />}
-        </TestDiv>
-      </BtnContainer>
-    </TodoItem>
+    <>
+      <TodoItem
+        onMouseEnter={(e) => showBtn(e)}
+        onMouseLeave={(e) => hideBtn(e)}>
+        <Div>
+          <CheckBox
+            type="checkbox"
+            id={`checkbox-${id}`}
+            checked={isCompleted}
+            onChange={handleChange}
+            // onClick={() => setIsCompleted(!isCompleted)}
+          />
+          <label
+            htmlFor={`checkbox-${id}`}
+            onClick={() => setIsCompleted(!isCompleted)}></label>
+        </Div>
+        <TodoTxt>{value}</TodoTxt>
+        <BtnContainer>
+          <TestDiv onClick={showModal}>
+            {displayBtn && <Button btnType="Edit" />}
+          </TestDiv>
+          <TestDiv onClick={handleDelete}>
+            {displayBtn && <Button btnType="Remove" />}
+          </TestDiv>
+        </BtnContainer>
+      </TodoItem>
+      {isModalOpen && (
+        <EditTodo showModal={showModal} editValue={value} id={id} />
+      )}
+    </>
   );
 }
 
