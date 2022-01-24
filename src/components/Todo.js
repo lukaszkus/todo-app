@@ -77,6 +77,7 @@ const TodoTxt = styled.p`
   max-width: 400px;
   line-height: 1.5;
   overflow-wrap: anywhere;
+  text-decoration: ${(props) => (props.isCompleted ? "line-through" : "none")};
 `;
 
 const BtnContainer = styled.div`
@@ -161,7 +162,7 @@ function Todo({ value, id, completed }) {
           </CheckBoxLabel>
           <StyledCheckbox checked={isCompleted} />
         </CheckBoxContainer> */}
-        <TodoTxt>{value}</TodoTxt>
+        <TodoTxt isCompleted={isCompleted}>{value}</TodoTxt>
         <BtnContainer>
           <TestDiv onClick={showModal}>
             {displayBtn && <Button btnType="Edit" />}
