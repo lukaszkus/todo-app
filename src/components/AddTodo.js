@@ -8,12 +8,12 @@ import Button from "./Button";
 const AddTodoForm = styled.form`
   display: flex;
   align-items: center;
+  gap: 15px;
   width: 100%;
   padding: 15px 20px;
   background: ${({ theme }) => theme.todoBg};
   border-radius: 5px;
   margin-bottom: 1rem;
-  position: relative;
   box-shadow: 0px 20px 30px -10px ${({ theme }) => theme.shadow};
 
   @media screen and (min-width: 768px) {
@@ -22,13 +22,12 @@ const AddTodoForm = styled.form`
 
 const AddTodoInput = styled.input`
   width: 100%;
-  height: 20px;
-  margin-right: 15px;
+  line-height: 1.5;
   font-family: "Josefin Sans", sans-serif;
-  font-size: 12px;
+  font-size: 14px;
   border: none;
-  background: transparent;
   outline: none;
+  background: transparent;
 `;
 
 function AddTodo() {
