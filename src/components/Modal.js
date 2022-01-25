@@ -16,7 +16,7 @@ const ModalContent = styled.div`
   left: 0;
 `;
 
-function Modal({ openModal, children }) {
+function Modal({ children }) {
   return (
     <ModalContainer>
       <ModalContent>{children}</ModalContent>

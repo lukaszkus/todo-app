@@ -13,9 +13,7 @@ const EditForm = styled.form`
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1000;
-  display: flex;
-  align-items: center;
-  width: 500px;
+  width: 400px;
   padding: 15px 20px;
   background: ${({ theme }) => theme.todoBg};
   border-radius: 5px;
@@ -26,15 +24,32 @@ const EditForm = styled.form`
   }
 `;
 
+const EditHeader = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid ${({ theme }) => theme.line};
+`;
+
+const EditTitle = styled.p``;
+
 const EditInput = styled.input`
   width: 100%;
-  height: 20px;
-  margin-right: 15px;
+  padding: 20px 0;
   font-family: "Josefin Sans", sans-serif;
-  font-size: 12px;
+  font-size: 16px;
   border: none;
   background: transparent;
   outline: none;
+`;
+
+const EditFooter = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 10px;
+  border-top: 1px solid ${({ theme }) => theme.line};
 `;
 
 function EditTodo({ showModal, editValue, id }) {
@@ -57,14 +72,19 @@ function EditTodo({ showModal, editValue, id }) {
   return (
     <Modal>
       <EditForm onSubmit={handleUpdate} name="editTodo">
+        <EditHeader>
+          <EditTitle>Edit</EditTitle>
+          <Button btnType="Close" type="button" onClick={showModal} />
+        </EditHeader>
         <EditInput
           type="text"
           name="edit value"
           value={value}
           onChange={(e) => setValue(e.target.value)}
         />
-        <Button btnType="Save" type="submit" />
-        <Button btnType="Close" type="button" onClick={showModal} />
+        <EditFooter>
+          <Button btnType="Save" type="submit" />
+        </EditFooter>
       </EditForm>
     </Modal>
   );
