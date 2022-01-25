@@ -3,22 +3,17 @@ import { useState } from "react";
 import { doc, updateDoc } from "firebase/firestore";
 import { db } from "../utils/firebaseConfig";
 
+import ReactTooltip from "react-tooltip";
 import styled from "styled-components";
 import Button from "./Button";
 import Modal from "./Modal";
 
 const EditForm = styled.form`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 1000;
-  width: 400px;
+  width: 100%;
   padding: 15px 20px;
   background: ${({ theme }) => theme.todoBg};
   border-radius: 5px;
-  margin-bottom: 1rem;
-  box-shadow: 0px 20px 30px -10px ${({ theme }) => theme.shadow};
+  box-shadow: 0px 20px 30px 20px ${({ theme }) => theme.shadow};
 
   @media screen and (min-width: 768px) {
   }
@@ -81,7 +76,9 @@ function EditTodo({ showModal, editValue, id }) {
           name="edit value"
           value={value}
           onChange={(e) => setValue(e.target.value)}
+          data-tip="Click to edit"
         />
+        <ReactTooltip />
         <EditFooter>
           <Button btnType="Save" type="submit" />
         </EditFooter>
