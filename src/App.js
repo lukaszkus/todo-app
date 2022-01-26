@@ -42,7 +42,7 @@ function App() {
       <Container>
         <Header themeToggle={themeToggle} />
         <TodoList todos={todos} />
-        <Footer />
+        <Footer todos={todos} />
       </Container>
     </ThemeProvider>
   );
