@@ -8,7 +8,7 @@ import styled from "styled-components";
 import Button from "./Button";
 import Modal from "./Modal";
 
-const EditForm = styled.form`
+const EditContainer = styled.div`
   width: 100%;
   padding: 15px 20px;
   background: ${({ theme }) => theme.todoBg};
@@ -19,22 +19,29 @@ const EditForm = styled.form`
   }
 `;
 
+const EditForm = styled.form`
+  width: 100%;
+`;
+
 const EditHeader = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 14px;
   padding-bottom: 10px;
   border-bottom: 1px solid ${({ theme }) => theme.line};
 `;
 
-const EditTitle = styled.p``;
+const EditTitle = styled.p`
+  font-size: 14px;
+  color: ${({ theme }) => theme.textDisabled};
+`;
 
 const EditInput = styled.input`
   width: 100%;
   padding: 20px 0;
   font-family: "Josefin Sans", sans-serif;
   font-size: 16px;
+  color: ${({ theme }) => theme.text};
   border: none;
   background: transparent;
   outline: none;
@@ -45,6 +52,11 @@ const EditFooter = styled.div`
   justify-content: flex-end;
   padding-top: 10px;
   border-top: 1px solid ${({ theme }) => theme.line};
+`;
+
+const BtnContainer = styled.div`
+  display: grid;
+  place-items: center;
 `;
 
 function EditTodo({ showModal, editValue, id }) {
@@ -66,23 +78,27 @@ function EditTodo({ showModal, editValue, id }) {
 
   return (
     <Modal>
-      <EditForm onSubmit={handleUpdate} name="editTodo">
+      <EditContainer>
         <EditHeader>
           <EditTitle>Edit</EditTitle>
-          <Button btnType="Close" type="button" onClick={showModal} />
+          <BtnContainer onClick={showModal}>
+            <Button btnType="Close" />
+          </BtnContainer>
         </EditHeader>
-        <EditInput
-          type="text"
-          name="edit value"
-          value={value}
-          onChange={(e) => setValue(e.target.value)}
-          data-tip="Click to edit"
-        />
-        <ReactTooltip />
-        <EditFooter>
-          <Button btnType="Save" type="submit" />
-        </EditFooter>
-      </EditForm>
+        <EditForm onSubmit={handleUpdate} name="editTodo">
+          <EditInput
+            type="text"
+            name="edit value"
+            value={value}
+            onChange={(e) => setValue(e.target.value)}
+            data-tip="Edit"
+          />
+          <ReactTooltip globalEventOff="click" />
+          <EditFooter>
+            <Button btnType="Save" type="submit" />
+          </EditFooter>
+        </EditForm>
+      </EditContainer>
     </Modal>
   );
 }
