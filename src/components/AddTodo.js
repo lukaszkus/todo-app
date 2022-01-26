@@ -13,7 +13,7 @@ const AddTodoForm = styled.form`
   padding: 15px 20px;
   background: ${({ theme }) => theme.todoBg};
   border-radius: 5px;
-  margin-bottom: 1rem;
+  margin-bottom: 1.2rem;
   box-shadow: 0px 20px 30px -10px ${({ theme }) => theme.shadow};
 
   @media screen and (min-width: 768px) {
