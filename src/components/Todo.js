@@ -28,11 +28,7 @@ const TodoText = styled.p`
   line-height: 1.5;
   overflow-wrap: anywhere;
   text-decoration: ${(props) => (props.checked ? "line-through" : "none")};
-
-  ${(props) =>
-    props.checked
-      ? `color: ${({ theme }) => theme.textDisabled}`
-      : `color: ${({ theme }) => theme.text}`};
+  opacity: ${(props) => (props.checked ? 0.4 : 1)};
 `;
 
 const TodoButtons = styled.div`
@@ -92,8 +88,7 @@ function Todo({ value, id, completed }) {
     <>
       <TodoItem
         onMouseEnter={(e) => showBtn(e)}
-        onMouseLeave={(e) => hideBtn(e)}
-      >
+        onMouseLeave={(e) => hideBtn(e)}>
         <Checkbox
           id={id}
           checked={checked}

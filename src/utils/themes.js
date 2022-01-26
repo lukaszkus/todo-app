@@ -12,25 +12,23 @@ import iconMoon from "../images/icon-moon.svg";
 
 //Theme colors
 export const lightTheme = {
-  bodyBg: "#fafafa",
+  bodyBg: clr.white,
   text: "hsl(235, 19%, 35%)",
-  textDisabled: "blue",
   bgMobImg: `url(${imgMobLight})`,
   bgDeskImg: `url(${imgDeskLight})`,
   toggleIcon: `url(${iconMoon})`,
   todoBg: clr.white,
-  line: "#e6e5ea",
+  line: "hsl(234, 39%, 85%)",
   shadow: "rgba(0, 0, 0, 0.2)",
 };
 
 export const darkTheme = {
-  bodyBg: "#181824",
+  bodyBg: "hsl(235, 21%, 11%)",
   text: "hsl(234, 39%, 85%)",
-  textDisabled: "red",
   bgMobImg: `url(${imgMobDark})`,
   bgDeskImg: `url(${imgDeskDark})`,
   toggleIcon: `url(${iconSun})`,
   todoBg: "#25273c",
-  line: "#4d4f64",
+  line: "hsl(233, 14%, 35%)",
   shadow: "rgba(0, 0, 0, 0.6)",
 };
