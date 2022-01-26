@@ -1,16 +1,30 @@
 import { useState, useEffect } from "react";
 import styled from "styled-components";
 
-const FooterContainer = styled.footer`
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
+const Container = styled.footer`
   width: 100%;
-  padding: 15px 20px;
   background: ${({ theme }) => theme.todoBg};
   border-radius: 5px;
-  margin: 1.2rem 0 3rem 0;
+  margin-top 1.2rem;
   box-shadow: 0px 20px 30px -10px ${({ theme }) => theme.shadow};
+`;
+
+// const Container = styled(FooterContainer)`
+//   justify-content: center;
+//   margin-top: 0;
+// `;
+
+const Items = styled.div`
+  display: flex;
+  align-items: flex-end;
+  justify-content: ${(props) => (props.width ? "center" : "space-between")};
+  padding: 15px 20px;
+
+  &:first-child {
+    border-bottom: 1px solid ${({ theme }) => theme.line};
+    // border-bottom: ${(props) => (props.width ? "0" : "1px")} solid
+    //   ${({ theme }) => theme.line};
+  }
 `;
 
 const TotalItems = styled.p`
@@ -20,6 +34,7 @@ const TotalItems = styled.p`
 
 const FilteredItems = styled.div`
   display: flex;
+  justify-content: center;
   gap: 10px;
 `;
 
@@ -56,16 +71,33 @@ function Footer({ todos }) {
 
   return (
     <>
-      <FooterContainer>
-        <TotalItems>{todos.length} items left</TotalItems>
-        <FilteredItems>
-          <All>All</All>
-          <Active>Active</Active>
-          <Completed>Completed</Completed>
-        </FilteredItems>
-        <ClearItems>Clear completed items</ClearItems>
-      </FooterContainer>
-      <div>{width > breakPoint ? <div>769px</div> : <div>768px</div>}</div>
+      {width > breakPoint ? (
+        <Container>
+          <Items>
+            <TotalItems>{todos.length} items left</TotalItems>
+            <FilteredItems>
+              <All>All</All>
+              <Active>Active</Active>
+              <Completed>Completed</Completed>
+            </FilteredItems>
+            <ClearItems>Clear completed items</ClearItems>
+          </Items>
+        </Container>
+      ) : (
+        <Container>
+          <Items>
+            <TotalItems>{todos.length} items left</TotalItems>
+            <ClearItems>Clear completed items</ClearItems>
+          </Items>
+          <Items width={width}>
+            <FilteredItems>
+              <All>All</All>
+              <Active>Active</Active>
+              <Completed>Completed</Completed>
+            </FilteredItems>
+          </Items>
+        </Container>
+      )}
     </>
   );
 }
