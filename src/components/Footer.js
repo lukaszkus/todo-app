@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import styled from "styled-components";
+import { clr } from "../utils/variables";
 
 const Container = styled.footer`
   width: 100%;
@@ -9,27 +10,26 @@ const Container = styled.footer`
   box-shadow: 0px 20px 30px -10px ${({ theme }) => theme.shadow};
 `;
 
-// const Container = styled(FooterContainer)`
-//   justify-content: center;
-//   margin-top: 0;
-// `;
-
 const Items = styled.div`
   display: flex;
   align-items: flex-end;
   justify-content: ${(props) => (props.width ? "center" : "space-between")};
   padding: 15px 20px;
+  color: ${({ theme }) => theme.textLight};
+  border-bottom: 1px solid;
+  border-color: ${({ theme }) => theme.line};
 
   &:first-child {
-    border-bottom: 1px solid ${({ theme }) => theme.line};
-    // border-bottom: ${(props) => (props.width ? "0" : "1px")} solid
-    //   ${({ theme }) => theme.line};
+    border-color: ${({ theme }) => theme.line};
+  }
+
+  &:last-child {
+    border: 0;
   }
 `;
 
 const TotalItems = styled.p`
   font-size: 12px;
-  opacity: 0.5;
 `;
 
 const FilteredItems = styled.div`
@@ -40,22 +40,34 @@ const FilteredItems = styled.div`
 
 const All = styled.p`
   font-size: 14px;
-  opacity: 0.5;
 `;
 
 const Active = styled.p`
   font-size: 14px;
-  opacity: 0.5;
 `;
 
 const Completed = styled.p`
   font-size: 14px;
-  opacity: 0.5;
 `;
 
 const ClearItems = styled.p`
   font-size: 12px;
-  opacity: 0.5;
+`;
+
+const Credits = styled.div`
+  text-align: center;
+  font-size: 10px;
+  font-weight: 300;
+  padding: 2rem;
+  color: ${({ theme }) => theme.textLight};
+`;
+
+const Link = styled.a`
+  color: ${({ theme }) => theme.textLight};
+
+  &:hover {
+    color: ${clr.bright};
+  }
 `;
 
 function Footer({ todos }) {
@@ -98,6 +110,13 @@ function Footer({ todos }) {
           </Items>
         </Container>
       )}
+      <Credits>
+        Challenge by{" "}
+        <Link href="https://www.frontendmentor.io?ref=challenge">
+          Frontend Mentor
+        </Link>
+        . Coded by <Link href="https://github.com/lukaszkus">lukaszkus</Link>.
+      </Credits>
     </>
   );
 }

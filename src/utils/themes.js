@@ -14,6 +14,7 @@ import iconMoon from "../images/icon-moon.svg";
 export const lightTheme = {
   bodyBg: clr.white,
   text: "hsl(235, 19%, 35%)",
+  textLight: "hsla(233, 14%, 35%, 0.5)",
   bgMobImg: `url(${imgMobLight})`,
   bgDeskImg: `url(${imgDeskLight})`,
   toggleIcon: `url(${iconMoon})`,
@@ -25,6 +26,7 @@ export const lightTheme = {
 export const darkTheme = {
   bodyBg: "hsl(235, 21%, 11%)",
   text: "hsl(234, 39%, 85%)",
+  textLight: "hsl(233, 14%, 35%)",
   bgMobImg: `url(${imgMobDark})`,
   bgDeskImg: `url(${imgDeskDark})`,
   toggleIcon: `url(${iconSun})`,
