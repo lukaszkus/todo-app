@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import styled from "styled-components";
+import ReactTooltip from "react-tooltip";
 import { clr } from "../utils/variables";
 
 const Container = styled.footer`
@@ -91,9 +92,20 @@ function Footer({
           <Items>
             <TotalItems>{todos.length} items</TotalItems>
             <FilteredItems>
-              <All onClick={handleFilterAll}>All</All>
-              <Active onClick={handleFilterActive}>Active</Active>
-              <Completed onClick={handleFilterCompleted}>Completed</Completed>
+              <All onClick={handleFilterAll} data-tip="Show all">
+                All
+              </All>
+              <ReactTooltip />
+              <Active onClick={handleFilterActive} data-tip="Show active">
+                Active
+              </Active>
+              <ReactTooltip />
+              <Completed
+                onClick={handleFilterCompleted}
+                data-tip="Show completed">
+                Completed
+              </Completed>
+              <ReactTooltip />
             </FilteredItems>
             <ClearItems>Clear completed items</ClearItems>
           </Items>
@@ -106,9 +118,20 @@ function Footer({
           </Items>
           <Items width={width}>
             <FilteredItems>
-              <All onClick={handleFilterAll}>All</All>
-              <Active onClick={handleFilterActive}>Active</Active>
-              <Completed onClick={handleFilterCompleted}>Completed</Completed>
+              <All onClick={handleFilterAll} data-tip="Show all">
+                All
+              </All>
+              <ReactTooltip />
+              <Active onClick={handleFilterActive} data-tip="Show active">
+                Active
+              </Active>
+              <ReactTooltip />
+              <Completed
+                onClick={handleFilterCompleted}
+                data-tip="Show completed">
+                Completed
+              </Completed>
+              <ReactTooltip />
             </FilteredItems>
           </Items>
         </Container>

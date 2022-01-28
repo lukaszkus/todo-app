@@ -88,8 +88,7 @@ function Todo({ value, id, completed }) {
     <>
       <TodoItem
         onMouseEnter={(e) => showBtn(e)}
-        onMouseLeave={(e) => hideBtn(e)}
-      >
+        onMouseLeave={(e) => hideBtn(e)}>
         <Checkbox
           id={id}
           checked={checked}
