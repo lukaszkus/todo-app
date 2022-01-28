@@ -35,20 +35,18 @@ const TotalItems = styled.p`
 const FilteredItems = styled.div`
   display: flex;
   justify-content: center;
-  gap: 10px;
+  gap: 15px;
 `;
 
 const All = styled.p`
   font-size: 14px;
+  cursor: pointer;
+  &:hover {
+    color: ${({ theme }) => theme.text};
+  }
 `;
-
-const Active = styled.p`
-  font-size: 14px;
-`;
-
-const Completed = styled.p`
-  font-size: 14px;
-`;
+const Active = styled(All)``;
+const Completed = styled(All)``;
 
 const ClearItems = styled.p`
   font-size: 12px;
@@ -70,7 +68,12 @@ const Link = styled.a`
   }
 `;
 
-function Footer({ todos }) {
+function Footer({
+  todos,
+  handleFilterAll,
+  handleFilterActive,
+  handleFilterCompleted,
+}) {
   const [width, setWidth] = useState(window.innerWidth);
   const breakPoint = 768;
 
@@ -86,11 +89,11 @@ function Footer({ todos }) {
       {width > breakPoint ? (
         <Container>
           <Items>
-            <TotalItems>{todos.length} items left</TotalItems>
+            <TotalItems>{todos.length} items</TotalItems>
             <FilteredItems>
-              <All>All</All>
-              <Active>Active</Active>
-              <Completed>Completed</Completed>
+              <All onClick={handleFilterAll}>All</All>
+              <Active onClick={handleFilterActive}>Active</Active>
+              <Completed onClick={handleFilterCompleted}>Completed</Completed>
             </FilteredItems>
             <ClearItems>Clear completed items</ClearItems>
           </Items>
@@ -103,9 +106,9 @@ function Footer({ todos }) {
           </Items>
           <Items width={width}>
             <FilteredItems>
-              <All>All</All>
-              <Active>Active</Active>
-              <Completed>Completed</Completed>
+              <All onClick={handleFilterAll}>All</All>
+              <Active onClick={handleFilterActive}>Active</Active>
+              <Completed onClick={handleFilterCompleted}>Completed</Completed>
             </FilteredItems>
           </Items>
         </Container>

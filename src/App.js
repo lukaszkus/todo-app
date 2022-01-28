@@ -19,6 +19,11 @@ const Container = styled.div`
 function App() {
   const [theme, setTheme] = useState("light");
   const [todos, setTodos] = useState([]);
+  const [filter, setFilter] = useState("all");
+
+  const themeToggle = () => {
+    theme === "light" ? setTheme("dark") : setTheme("light");
+  };
 
   useEffect(() => {
     const q = query(collection(db, "todos"), orderBy("created", "desc"));
@@ -32,8 +37,27 @@ function App() {
     });
   }, []);
 
-  const themeToggle = () => {
-    theme === "light" ? setTheme("dark") : setTheme("light");
+  const filteredTodos = todos.filter((todo) => {
+    switch (filter) {
+      case "active":
+        return !todo.data.completed;
+      case "completed":
+        return todo.data.completed;
+      default:
+        return todo;
+    }
+  });
+
+  const handleFilterAll = () => {
+    setFilter("all");
+  };
+
+  const handleFilterActive = () => {
+    setFilter("active");
+  };
+
+  const handleFilterCompleted = () => {
+    setFilter("completed");
   };
 
   return (
@@ -41,8 +65,13 @@ function App() {
       <GlobalStyles />
       <Container>
         <Header themeToggle={themeToggle} />
-        <TodoList todos={todos} />
-        <Footer todos={todos} />
+        <TodoList todos={filteredTodos} />
+        <Footer
+          todos={filteredTodos}
+          handleFilterAll={handleFilterAll}
+          handleFilterActive={handleFilterActive}
+          handleFilterCompleted={handleFilterCompleted}
+        />
       </Container>
     </ThemeProvider>
   );

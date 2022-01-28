@@ -1,5 +1,3 @@
-import React from "react";
-import { useState } from "react";
 import styled from "styled-components";
 
 import AddTodo from "./AddTodo";
@@ -15,25 +13,11 @@ export const List = styled.ul`
 `;
 
 function TodoList({ todos }) {
-  const [filteredTodos, setFilteredTodos] = useState(todos);
-
-  const handleDisplayAll = () => setFilteredTodos(todos);
-
-  const activeTodosFiltered = todos.filter(
-    (todo) => todo.data.completed === false
-  );
-  const handleDisplayActive = () => setFilteredTodos(activeTodosFiltered);
-
-  const completedTodosFiltered = todos.filter(
-    (todo) => todo.data.completed === true
-  );
-  const handleDisplayCompleted = () => setFilteredTodos(completedTodosFiltered);
-
   return (
     <Container>
       <AddTodo />
       <List>
-        {filteredTodos.map((todo) => (
+        {todos.map((todo) => (
           <Todo
             id={todo.id}
             key={todo.id}
@@ -42,9 +26,6 @@ function TodoList({ todos }) {
           />
         ))}
       </List>
-      <button onClick={handleDisplayAll}>All</button>
-      <button onClick={handleDisplayActive}>Active</button>
-      <button onClick={handleDisplayCompleted}>Completed</button>
     </Container>
   );
 }
