@@ -42,12 +42,29 @@ const FilteredItems = styled.div`
 const All = styled.p`
   font-size: 14px;
   cursor: pointer;
+  color: ${(props) => (props.filter === "all" ? clr.bright : "")};
   &:hover {
     color: ${({ theme }) => theme.text};
   }
 `;
-const Active = styled(All)``;
-const Completed = styled(All)``;
+
+const Active = styled.p`
+  font-size: 14px;
+  cursor: pointer;
+  color: ${(props) => (props.filter === "active" ? clr.bright : "")};
+  &:hover {
+    color: ${({ theme }) => theme.text};
+  }
+`;
+
+const Completed = styled.p`
+  font-size: 14px;
+  cursor: pointer;
+  color: ${(props) => (props.filter === "completed" ? clr.bright : "")};
+  &:hover {
+    color: ${({ theme }) => theme.text};
+  }
+`;
 
 const ClearItems = styled.p`
   font-size: 12px;
@@ -70,6 +87,7 @@ const Link = styled.a`
 `;
 
 function Footer({
+  filter,
   todos,
   handleFilterAll,
   handleFilterActive,
@@ -92,17 +110,27 @@ function Footer({
           <Items>
             <TotalItems>{todos.length} items</TotalItems>
             <FilteredItems>
-              <All onClick={handleFilterAll} data-tip="Show all">
+              <All
+                onClick={handleFilterAll}
+                filter={filter}
+                data-tip="Show all"
+              >
                 All
               </All>
               <ReactTooltip />
-              <Active onClick={handleFilterActive} data-tip="Show active">
+              <Active
+                onClick={handleFilterActive}
+                filter={filter}
+                data-tip="Show active"
+              >
                 Active
               </Active>
               <ReactTooltip />
               <Completed
                 onClick={handleFilterCompleted}
-                data-tip="Show completed">
+                filter={filter}
+                data-tip="Show completed"
+              >
                 Completed
               </Completed>
               <ReactTooltip />
@@ -118,17 +146,27 @@ function Footer({
           </Items>
           <Items width={width}>
             <FilteredItems>
-              <All onClick={handleFilterAll} data-tip="Show all">
+              <All
+                onClick={handleFilterAll}
+                filter={filter}
+                data-tip="Show all"
+              >
                 All
               </All>
               <ReactTooltip />
-              <Active onClick={handleFilterActive} data-tip="Show active">
+              <Active
+                onClick={handleFilterActive}
+                filter={filter}
+                data-tip="Show active"
+              >
                 Active
               </Active>
               <ReactTooltip />
               <Completed
                 onClick={handleFilterCompleted}
-                data-tip="Show completed">
+                filter={filter}
+                data-tip="Show completed"
+              >
                 Completed
               </Completed>
               <ReactTooltip />
