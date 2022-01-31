@@ -1,6 +1,7 @@
 <div id="top"></div>
 
-[![MIT License][license-shield]][license-url]
+<!-- [![MIT License][license-shield]][license-url] -->
+
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
 <!-- PROJECT LOGO -->
@@ -140,7 +141,7 @@ Demo link: [https://todo-fm.netlify.app/](https://todo-fm.netlify.app/)
 <br/>
 Project link: [https://github.com/lukaszkus/todo-app](https://github.com/lukaszkus/todo-app)
 <br/>
-Frontend Mentor solution:
+Frontend Mentor solution: [https://www.frontendmentor.io/solutions/todo-app-made-with-reactjs-styledcomponents-and-firebase-EvXd7GwFt](https://www.frontendmentor.io/solutions/todo-app-made-with-reactjs-styledcomponents-and-firebase-EvXd7GwFt)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
