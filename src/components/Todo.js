@@ -20,6 +20,9 @@ const TodoItem = styled.li`
   &:last-child {
     border: none;
   }
+  &:first-child {
+    border-bottom: 1px solid ${({ theme }) => theme.line};
+  }
 `;
 
 const TodoText = styled.p`

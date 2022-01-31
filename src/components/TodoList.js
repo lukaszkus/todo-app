@@ -10,7 +10,7 @@ const List = styled.ul`
   background: ${({ theme }) => theme.todoBg};
   border-radius: 5px;
   box-shadow: 0px 20px 30px -10px ${({ theme }) => theme.shadow};
-  min-height: 96px;
+  min-height: 109px;
 `;
 
 const EmptyList = styled.div`
