@@ -4,6 +4,7 @@ import { collection, addDoc, Timestamp } from "firebase/firestore";
 
 import styled from "styled-components";
 import Button from "./Button";
+import Error from "./Error";
 
 const AddTodoForm = styled.form`
   display: flex;
@@ -32,19 +33,27 @@ const AddTodoInput = styled.input`
 
 function AddTodo() {
   const [value, setValue] = useState("");
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const showError = () => {
+    setIsModalOpen(!isModalOpen);
+  };
 
   /* function to add new todo to firestore */
   const handleAdd = async (e) => {
     e.preventDefault();
-    try {
-      await addDoc(collection(db, "todos"), {
-        value: value,
-        completed: false,
-        created: Timestamp.now(),
-      });
-    } catch (err) {
-      alert(err);
-    }
+    if (value.length >= 3) {
+      try {
+        await addDoc(collection(db, "todos"), {
+          value: value,
+          completed: false,
+          created: Timestamp.now(),
+        });
+      } catch (err) {
+        alert(err);
+      }
+      setValue("");
+    } else showError();
     setValue("");
   };
 
@@ -58,6 +67,12 @@ function AddTodo() {
         onChange={(e) => setValue(e.target.value)}
       />
       <Button btnType="Add" />
+      {isModalOpen && (
+        <Error
+          showError={showError}
+          errorText="Please enter at least 3 characters."
+        />
+      )}
     </AddTodoForm>
   );
 }

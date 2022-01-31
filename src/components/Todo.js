@@ -54,7 +54,9 @@ function Todo({ value, id, completed }) {
 
   const showBtn = (e) => {
     e.preventDefault();
-    setDisplayBtn(true);
+    if (checked === true) {
+      setDisplayBtn(false);
+    } else setDisplayBtn(true);
   };
 
   const hideBtn = (e) => {
