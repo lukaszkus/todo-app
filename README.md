@@ -10,10 +10,11 @@
     <img src="logo.svg" alt="Logo" width="80" height="80">
   </a>
 
-<h2 align="center">TODO App</h2>
+<h3 align="center">TODO App</h3>
 
   <p align="center">
-    project_description
+    Todo App is a simple tool to help you organise everything.
+    It’s a list of tasks you need to complete or things that you want to do.
     <br />
     <br />
     <a href="https://todo-fm.netlify.app/">View Demo</a>
@@ -33,18 +34,13 @@
       </ul>
     </li>
     <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-      </ul>
+      <a href="#installation">Installation</a>
     </li>
-    <li><a href="#usage">Usage</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
+    <li><a href="#links">Links</a></li>
   </ol>
 </details>
 
@@ -54,31 +50,30 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://todo-fm.netlify.app/)
 
-Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `github_username`, `repo_name`, `twitter_handle`, `linkedin_username`, `email`, `email_client`, `project_title`, `project_description`
+This projects is a solution to the [Todo app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/todo-app-Su1_KokOW). The app is connected with Firebase and perform CRUD operations in the database.
+
+Users are able to:
+
+- View the optimal layout for the app depending on their device's screen size
+- See hover states for all interactive elements on the page
+- Toggle light and dark mode
+- Add new todos to the list
+- Mark todos as complete
+- Update todos
+- Delete todos from the list
+- Filter by all/active/complete todos
+- Clear all completed todos (in progress...)
 
 ### Built With
 
 - [React.js](https://reactjs.org/)
 - [Styled Components](https://styled-components.com/)
 - [Firebase](https://firebase.google.com/)
+- Responsive Web Design - [w3schools](https://www.w3schools.com/html/html_responsive.asp), [MDN](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Responsive_Design)
 
 <!-- GETTING STARTED -->
 
-## Getting Started
-
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
-
-### Prerequisites
-
-This is an example of how to list things you need to use the software and how to install them.
-
-- npm
-  ```sh
-  npm install npm@latest -g
-  ```
-
-### Installation
+## Installation
 
 1. Create a project and a database on Firebase. How to setup Firebase and build similiar application see this [tutorial](https://blog.logrocket.com/build-crud-application-react-firebase-web-sdk-v9/).
 2. Clone the repo
@@ -101,24 +96,13 @@ This is an example of how to list things you need to use the software and how to
    };
    ```
 
-<!-- USAGE EXAMPLES -->
-
-## Usage
-
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
-
 <!-- ROADMAP -->
 
 ## Roadmap
 
-- [] Feature 1
-- [] Feature 2
-- [] Feature 3
-  - [] Nested Feature
-
-See the [open issues](https://github.com/github_username/repo_name/issues) for a full list of proposed features (and known issues).
+- User authorization and authentication.
+- Task categories.
+- Calendar integration.
 
 <!-- CONTRIBUTING -->
 
@@ -126,8 +110,7 @@ See the [open issues](https://github.com/github_username/repo_name/issues) for a
 
 Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
-Don't forget to give the project a star! Thanks again!
+Don't forget to give the project a star!
 
 1. Fork the Project
 2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
@@ -145,11 +128,19 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 ## Contact
 
-@lukaszkus - [linkedin](https://www.linkedin.com/in/lukasz-kus/) - lukasz.kus84@outlook.com
+@lukaszkus
+<br/>
+LinkedIn: [https://www.linkedin.com/in/lukasz-kus](https://www.linkedin.com/in/lukasz-kus/)
+<br/>
+e-mail: lukasz.kus84@outlook.com
 
-Project Link: [https://github.com/lukaszkus/todo-app](https://github.com/lukaszkus/todo-app)
+## Links
 
-Demo Link: [https://todo-fm.netlify.app/](https://todo-fm.netlify.app/)
+Demo link: [https://todo-fm.netlify.app/](https://todo-fm.netlify.app/)
+<br/>
+Project link: [https://github.com/lukaszkus/todo-app](https://github.com/lukaszkus/todo-app)
+<br/>
+Frontend Mentor solution:
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -157,7 +148,7 @@ Demo Link: [https://todo-fm.netlify.app/](https://todo-fm.netlify.app/)
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 
 [license-shield]: https://img.shields.io/github/license/github_username/repo_name.svg?style=for-the-badge
-[license-url]: https://github.com/github_username/repo_name/blob/master/LICENSE.txt
+[license-url]: https://github.com/lukaszkus/todo-app/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/lukasz-kus/
 [product-screenshot]: screenshot.png
